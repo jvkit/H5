@@ -75,7 +75,7 @@
   /* ========== 倒计时（P2） ========== */
   (function countdown() {
     var el = document.getElementById("countdown");
-    var target = new Date("2026-05-30T18:30:00+08:00").getTime();
+    var target = new Date("2026-12-31T18:30:00+08:00").getTime();
     var diff = target - Date.now();
     var days = Math.ceil(diff / 86400000);
     el.textContent = days > 0 ? days + " 天" : "就是现在";
