@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>2026 校园星光音乐节 · 报名宣传</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23171233'/%3E%3Ctext x='16' y='23' font-size='18' text-anchor='middle' fill='%23ff5e8a'%3E%E2%99%AA%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- 640×1136 竖屏舞台，JS 等比缩放适配屏幕 -->
+  <div id="viewport">
+    <div id="stage">
+
+      <!-- 音频控制按钮：全程可用，播放/暂停可反复操作 -->
+      <button id="audioBtn" class="audio-btn" aria-label="背景音乐开关">
+        <span id="audioIcon">♪</span>
+        <span id="audioLabel">音乐关</span>
+      </button>
+
+      <!-- ========== P1 封面 ========== -->
+      <section class="page active" id="p1">
+        <div class="stars"></div>
+        <div class="cover-inner">
+          <p class="cover-kicker">2026 CAMPUS MUSIC FESTIVAL</p>
+          <div class="cover-disc" aria-hidden="true"><span>♪</span></div>
+          <h1 class="cover-title">星光<br>音乐节</h1>
+          <p class="cover-slogan">把夏夜交给音乐，把舞台留给你</p>
+          <div class="cover-info">
+            <p>5 月 30 日 18:30 · 学校中心操场</p>
+            <p>全校师生免费入场 · 报名即领荧光手环</p>
+          </div>
+          <button class="btn btn-primary btn-big" data-go="p2">进入活动 →</button>
+          <p class="cover-foot">校学生会 · 校园文化中心 联合主办</p>
+        </div>
+      </section>
+
+      <!-- ========== P2 活动介绍（分支选择页） ========== -->
+      <section class="page" id="p2">
+        <div class="page-inner">
+          <p class="page-kicker">FESTIVAL GUIDE</p>
+          <h2 class="page-title">玩转音乐节</h2>
+          <p class="page-desc">选择你想了解的内容，或直接报名锁定席位</p>
+
+          <div class="branch-list">
+            <button class="branch-card" data-go="p3">
+              <span class="branch-icon">★</span>
+              <span class="branch-text">
+                <strong>活动详情</strong>
+                <em>时间安排 · 场地分布 · 入场须知</em>
+              </span>
+              <span class="branch-arrow">→</span>
+            </button>
+            <button class="branch-card" data-go="p4">
+              <span class="branch-icon">♫</span>
+              <span class="branch-text">
+                <strong>演出阵容</strong>
+                <em>6 组校园乐队与歌手 · 点击看介绍</em>
+              </span>
+              <span class="branch-arrow">→</span>
+            </button>
+            <button class="branch-card branch-accent" data-go="p5">
+              <span class="branch-icon">✎</span>
+              <span class="branch-text">
+                <strong>立即报名</strong>
+                <em>30 秒填写 · 凭回执领取手环</em>
+              </span>
+              <span class="branch-arrow">→</span>
+            </button>
+          </div>
+
+          <div class="countdown-box">
+            <p class="countdown-label">距开演还有</p>
+            <p class="countdown-num" id="countdown">-- 天</p>
+          </div>
+
+          <button class="btn btn-ghost" data-go="p1">← 返回封面</button>
+        </div>
+      </section>
+
+      <!-- ========== P3 活动详情 ========== -->
+      <section class="page" id="p3">
+        <div class="page-inner">
+          <p class="page-kicker">EVENT DETAILS</p>
+          <h2 class="page-title">活动详情</h2>
+
+          <div class="info-card">
+            <h3>时间安排</h3>
+            <ul class="timeline">
+              <li><span>17:30</span>开放入场 · 领取荧光手环</li>
+              <li><span>18:30</span>开场秀 · 校街舞社</li>
+              <li><span>19:00</span>乐队演出 · 三轮竞演</li>
+              <li><span>21:00</span>全场大合唱 · 星空合影</li>
+              <li><span>21:30</span>活动结束 · 有序离场</li>
+            </ul>
+          </div>
+
+          <div class="info-card">
+            <h3>场地分布</h3>
+            <p class="info-text">主舞台设于中心操场北侧；南侧为观众区，东侧设饮品与文创摊位，西侧为医疗与安保点。</p>
+          </div>
+
+          <div class="info-card highlight">
+            <h3>温馨提示</h3>
+            <p class="info-text">入场、禁带物品、天气预案等注意事项，请查看报名须知。</p>
+            <button class="btn btn-primary" data-popup="popupNotice">查看报名须知</button>
+          </div>
+
+          <button class="btn btn-ghost" data-go="p2">← 返回活动介绍</button>
+        </div>
+      </section>
+
+      <!-- ========== P4 演出阵容 ========== -->
+      <section class="page" id="p4">
+        <div class="page-inner">
+          <p class="page-kicker">LINE UP</p>
+          <h2 class="page-title">演出阵容</h2>
+          <p class="page-desc">点击卡片，查看每组嘉宾的详细介绍</p>
+
+          <div class="artist-grid">
+            <button class="artist-card" data-popup="popupArtist" data-artist="0">
+              <span class="artist-avatar a1">逆</span>
+              <strong>逆时针乐队</strong>
+              <em>流行摇滚 · 压轴</em>
+            </button>
+            <button class="artist-card" data-popup="popupArtist" data-artist="1">
+              <span class="artist-avatar a2">鲸</span>
+              <strong>蓝鲸合唱团</strong>
+              <em>阿卡贝拉</em>
+            </button>
+            <button class="artist-card" data-popup="popupArtist" data-artist="2">
+              <span class="artist-avatar a3">屿</span>
+              <strong>林屿</strong>
+              <em>民谣唱作</em>
+            </button>
+            <button class="artist-card" data-popup="popupArtist" data-artist="3">
+              <span class="artist-avatar a4">焰</span>
+              <strong>焰色反应</strong>
+              <em>电子金属</em>
+            </button>
+            <button class="artist-card" data-popup="popupArtist" data-artist="4">
+              <span class="artist-avatar a5">夏</span>
+              <strong>半夏乐队</strong>
+              <em>城市流行</em>
+            </button>
+            <button class="artist-card" data-popup="popupArtist" data-artist="5">
+              <span class="artist-avatar a6">絮</span>
+              <strong>絮语组合</strong>
+              <em>民谣二重唱</em>
+            </button>
+          </div>
+
+          <button class="btn btn-ghost" data-go="p2">← 返回活动介绍</button>
+        </div>
+      </section>
+
+      <!-- ========== P5 报名表单 ========== -->
+      <section class="page" id="p5">
+        <div class="page-inner">
+          <p class="page-kicker">SIGN UP</p>
+          <h2 class="page-title">立即报名</h2>
+          <p class="page-desc">带 <span class="req">*</span> 为必填项，提交后生成专属报名回执</p>
+
+          <form id="signupForm" novalidate>
+            <div class="field">
+              <label for="fName">姓名 <span class="req">*</span></label>
+              <input type="text" id="fName" placeholder="请输入真实姓名" maxlength="20">
+              <p class="field-err" id="errName"></p>
+            </div>
+            <div class="field">
+              <label for="fPhone">手机号 <span class="req">*</span></label>
+              <input type="tel" id="fPhone" placeholder="用于接收入场短信" maxlength="11">
+              <p class="field-err" id="errPhone"></p>
+            </div>
+            <div class="field">
+              <label for="fDept">学院 / 单位</label>
+              <input type="text" id="fDept" placeholder="选填，如：新闻传播学院" maxlength="30">
+            </div>
+            <div class="field">
+              <label>意向区域 <span class="req">*</span></label>
+              <div class="radio-row">
+                <label class="radio"><input type="radio" name="zone" value="舞台前区"><span>舞台前区</span></label>
+                <label class="radio"><input type="radio" name="zone" value="观众中区"><span>观众中区</span></label>
+                <label class="radio"><input type="radio" name="zone" value="草坪自由区"><span>草坪自由区</span></label>
+              </div>
+              <p class="field-err" id="errZone"></p>
+            </div>
+            <button type="submit" class="btn btn-primary btn-big">提交报名</button>
+          </form>
+
+          <button class="btn btn-ghost" data-go="p2">← 返回活动介绍</button>
+        </div>
+      </section>
+
+      <!-- ========== P6 报名成功反馈页 ========== -->
+      <section class="page" id="p6">
+        <div class="page-inner receipt-inner">
+          <div class="receipt-check" aria-hidden="true">✓</div>
+          <h2 class="page-title">报名成功！</h2>
+          <p class="page-desc">请保存本页截图，入场时出示回执编号</p>
+
+          <div class="receipt-card">
+            <div class="receipt-row"><span>报名编号</span><strong id="rCode">—</strong></div>
+            <div class="receipt-row"><span>姓名</span><strong id="rName">—</strong></div>
+            <div class="receipt-row"><span>意向区域</span><strong id="rZone">—</strong></div>
+            <div class="receipt-row"><span>活动时间</span><strong>5 月 30 日 18:30</strong></div>
+            <div class="receipt-row"><span>活动地点</span><strong>学校中心操场</strong></div>
+          </div>
+
+          <p class="receipt-tip">凭回执编号可在入口处领取荧光手环一支</p>
+          <button class="btn btn-primary btn-big" data-go="p1">返回首页</button>
+          <button class="btn btn-ghost" data-go="p5">再帮朋友报一位 →</button>
+        </div>
+      </section>
+
+      <!-- ========== 弹窗 A：报名须知（不计入独立页面） ========== -->
+      <div class="popup-mask" id="popupNotice">
+        <div class="popup" role="dialog" aria-label="报名须知">
+          <h3 class="popup-title">报名须知</h3>
+          <ul class="popup-list">
+            <li>本次活动免费，仅限本校师生，每人限报一次。</li>
+            <li>入场时请出示报名回执编号与校园卡。</li>
+            <li>禁止携带易燃易爆物品、酒类及专业摄录设备。</li>
+            <li>如遇雨天，活动顺延一周，将短信通知已报名同学。</li>
+            <li>请保持场地卫生，垃圾随身带走。</li>
+          </ul>
+          <button class="btn btn-primary popup-close" data-close>我知道了</button>
+        </div>
+      </div>
+
+      <!-- ========== 弹窗 B：嘉宾详情（不计入独立页面） ========== -->
+      <div class="popup-mask" id="popupArtist">
+        <div class="popup" role="dialog" aria-label="嘉宾介绍">
+          <div class="popup-artist-avatar" id="paAvatar">逆</div>
+          <h3 class="popup-title" id="paName">—</h3>
+          <p class="popup-artist-tag" id="paTag">—</p>
+          <p class="popup-artist-desc" id="paDesc">—</p>
+          <button class="btn btn-primary popup-close" data-close>关闭</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
